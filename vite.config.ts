@@ -6,10 +6,9 @@ export default defineConfig({
     port: 3000,
   },
   nitro: {
-    preset: process.env.VERCEL ? "vercel" : "node-server",
+    preset: "vercel",
   },
   tanstackStart: {
-    // Redirect TanStack Start's bundled server entry to src/server.ts
     server: { entry: "server" },
   },
 });
