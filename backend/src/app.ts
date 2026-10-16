@@ -19,12 +19,31 @@ app.use(
   }),
 );
 
-const allowedOrigins = [env.FRONTEND_URL];
+// Support multiple FRONTEND_URL origins (comma separated) as well as Vercel preview domains (*.vercel.app)
+const allowedOrigins = (env.FRONTEND_URL || "")
+  .split(",")
+  .map((url) => url.trim().replace(/\/$/, ""))
+  .filter(Boolean);
 
 app.use(
   cors({
     origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin) || env.NODE_ENV === "development") {
+      // Allow server-to-server requests, mobile clients, and tools with no origin header
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      const cleanOrigin = origin.replace(/\/$/, "");
+
+      // Match explicit configured URLs, Vercel deployments (*.vercel.app), localhost, or dev mode
+      const isAllowedUrl = allowedOrigins.includes(cleanOrigin);
+      const isVercelDomain =
+        /\.vercel\.app$/.test(cleanOrigin) || cleanOrigin.endsWith(".vercel.app");
+      const isLocalhost =
+        /^https?:\/\/localhost(:\d+)?$/.test(cleanOrigin) ||
+        /^https?:\/\/127\.0\.0\.1(:\d+)?$/.test(cleanOrigin);
+
+      if (isAllowedUrl || isVercelDomain || isLocalhost || env.NODE_ENV === "development") {
         callback(null, true);
       } else {
         callback(new Error(`Origin ${origin} not allowed by CORS`));
