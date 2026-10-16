@@ -11,7 +11,7 @@ export const educationList: EducationItem[] = [
     period: "July 2023 — May 2027",
     grade: "CGPA: 7.4 / 10.0",
     highlights: [
-      "Former Chairperson @ IEEE CUSB (Main Branch) & Chairperson @ IEEE CIS",
+      "Former Chairperson @ IEEE CUSB (Main Branch) & Mentor @ IEEE CIS CUSB",
       "Specializing in Distributed Systems, System Design, and Modern Web Architectures",
     ],
   },
@@ -62,6 +62,9 @@ export const experienceList: ExperienceItem[] = [
       "System Integration",
       "Data Analytics",
     ],
+    imageUrls: [
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+    ],
   },
   {
     id: "ieee-cusb-chair",
@@ -91,32 +94,41 @@ export const experienceList: ExperienceItem[] = [
       { title: "Executive Member, IEEE CUSB", period: "September 2024 — July 2026" },
       { title: "Student Member", period: "July 2024 — Present" },
     ],
+    imageUrls: [
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+    ],
   },
   {
     id: "ieee-cis-cusb",
     organisation: "IEEE Computational Intelligence Society (CIS) CUSB",
-    role: "Chairperson & Vice-Chairperson",
+    role: "Mentor, Chairperson & Executive Leadership",
     type: "leadership",
     location: "Mohali, Punjab",
-    period: "July 2024 — Present (2 yrs 4 mos)",
+    period: "July 2024 — Present",
     description:
-      "Led the specialized Computational Intelligence Society chapter at Chandigarh University through rapid growth, technical workshops, and national competitions.",
+      "Led and currently mentor the specialized Computational Intelligence Society chapter at Chandigarh University through growth, technical workshops, and national competitions.",
     bullets: [
+      "Mentor, IEEE CIS CUSB (July 2026 – Present): Guiding executive officers, advisory oversight, and technical direction for student project cohorts.",
       "Chairperson (August 2025 – May 2026): Led the society to winning Best Chapter at CU during IEEE Excellence Awards 2.0.",
       "Vice Chairperson (December 2024 – August 2025): Spearheaded technical hackathons, guest lectures, and AI/ML project cohorts.",
       "Public Relations Lead (September 2024 – December 2024): Drove community outreach and digital branding across university networks.",
     ],
     tags: [
+      "Technical Mentorship",
       "Computational Intelligence",
       "AI/ML Workshops",
-      "Chapter Management",
+      "Chapter Governance",
       "Public Relations",
     ],
     subRoles: [
+      { title: "Mentor @ IEEE CIS CUSB", period: "July 2026 — Present" },
       { title: "Chairperson", period: "August 2025 — May 2026" },
       { title: "Vice Chairperson", period: "December 2024 — August 2025" },
       { title: "Public Relation Lead", period: "September 2024 — December 2024" },
       { title: "Student Member", period: "July 2024 — Present" },
+    ],
+    imageUrls: [
+      "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80",
     ],
   },
 ];
@@ -130,6 +142,12 @@ export const awardsList: AwardItem[] = [
     description:
       "Secured 3rd Position nationally among 700+ competing collegiate teams with InheritNext; advanced to regional round and earned a $200 award.",
     badge: "National Top 3",
+    details: [
+      "Evaluated by DFINITY & ICP developer jury on canister Rust architecture and automated heartbeat dead-man switch.",
+      "Competed against 700+ collegiate developer teams across India.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "pinnacle-command",
@@ -139,6 +157,12 @@ export const awardsList: AwardItem[] = [
     description:
       "Honored for exceptional executive chapter leadership, guiding IEEE CUSB to Best Chapter at Chandigarh University.",
     badge: "Executive Leadership",
+    details: [
+      "Recognized for chapter governance, event execution velocity, and student member engagement metrics.",
+      "Awarded during IEEE Annual Student Branch convocation.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1578269174936-2709b6aeb913?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "best-branch",
@@ -148,6 +172,12 @@ export const awardsList: AwardItem[] = [
     description:
       "Led IEEE CUSB through a transformative tenure, clinching the overall Best Student Branch trophy across the university.",
     badge: "University Honor",
+    details: [
+      "Organized 15+ high-impact technical bootcamps, industrial visits, and national hackathons.",
+      "Maintained an active community of 500+ student members.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "change-maker",
@@ -157,6 +187,12 @@ export const awardsList: AwardItem[] = [
     description:
       "Recognized for technical leadership and impactful community initiatives supporting a 500+ student body.",
     badge: "Community Impact",
+    details: [
+      "Fostered open-source culture and technical peer mentorship programs.",
+      "Bridged student developers with industrial opportunities and research projects.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "cu-project-expo",
@@ -164,8 +200,14 @@ export const awardsList: AwardItem[] = [
     organisation: "Chandigarh University",
     year: "April 2026",
     description:
-      "Secured First Place for the Green Credit Program (GCP) Automation platform, automating the Ministry of Environment, Forest and Climate Change (MoEFCC) credit workflows and geospatial monitoring.",
+      "Secured First Place for the Green Credit Program (GCP) Automation platform, automating Ministry of Environment, Forest and Climate Change (MoEFCC) workflows.",
     badge: "1st Place",
+    details: [
+      "Designed parcel geometry mapping and automated air/water credit verification pipelines.",
+      "Judged on technical implementation, geospatial map rendering, and policy alignment.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "ieee-day-global",
@@ -175,6 +217,11 @@ export const awardsList: AwardItem[] = [
     description:
       "Led IEEE CUSB to world champion status in the global competition representing the student branch internationally.",
     badge: "World Champion",
+    details: [
+      "Global competition judged by IEEE international committee among hundreds of global chapters.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "student-volunteer",
@@ -184,6 +231,11 @@ export const awardsList: AwardItem[] = [
     description:
       "Awarded for dedicated volunteer contributions toward organizing national workshops, student hackathons, and technical bootcamps.",
     badge: "Volunteer Award",
+    details: [
+      "Recognized for 100+ hours of community volunteer service and technical event coordination.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "vivibha",
@@ -193,5 +245,10 @@ export const awardsList: AwardItem[] = [
     description:
       "Qualified as a national finalist in technical research and academic paper writing on India's technological future.",
     badge: "National Finalist",
+    details: [
+      "Authored research synthesis on distributed systems and digital public infrastructure.",
+    ],
+    imageUrl:
+      "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80",
   },
 ];

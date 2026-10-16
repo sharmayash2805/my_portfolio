@@ -60,6 +60,7 @@ export interface ExperienceItem {
   bullets: string[];
   tags: string[];
   subRoles?: ExperienceRole[];
+  imageUrls?: string[];
 }
 
 export interface AwardItem {
@@ -69,6 +70,8 @@ export interface AwardItem {
   year: string;
   description: string;
   badge?: string;
+  details?: string[];
+  imageUrl?: string;
 }
 
 export interface Milestone {

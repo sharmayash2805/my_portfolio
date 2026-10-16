@@ -1,15 +1,9 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowDown, ArrowUpRight, ShieldCheck, Cpu, Code2, Sparkles } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
-
-const stats = [
-  { value: "6+", label: "Years building" },
-  { value: "18", label: "Products shipped" },
-  { value: "∞", label: "Curiosity" },
-];
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -19,7 +13,7 @@ export function Hero() {
       id="mahadrishti"
       className="relative isolate overflow-hidden px-4 pb-16 pt-10 sm:px-6 lg:px-8 lg:pb-24"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,158,11,0.18),_transparent_35%),radial-gradient(circle_at_bottom_right,_rgba(168,85,247,0.18),_transparent_30%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(245,158,11,0.12),_transparent_40%),radial-gradient(circle_at_bottom_right,_rgba(124,58,237,0.12),_transparent_35%)]" />
 
       <div className="relative mx-auto max-w-6xl">
         <motion.div
@@ -28,11 +22,18 @@ export function Hero() {
           transition={{ duration: shouldReduceMotion ? 0 : 0.6, ease: "easeOut" }}
           className="mb-8 flex flex-wrap items-center gap-3"
         >
-          <Badge variant="default">{siteConfig.availability}</Badge>
-          <Badge variant="outline">{siteConfig.mantra}</Badge>
+          <Badge variant="default" className="rounded-full px-3 py-1 text-[11px] font-semibold">
+            {siteConfig.availability}
+          </Badge>
+          <Badge
+            variant="outline"
+            className="rounded-full px-3 py-1 text-[11px] font-medium font-sanskrit"
+          >
+            {siteConfig.mantra}
+          </Badge>
         </motion.div>
 
-        <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,41 +43,43 @@ export function Hero() {
               delay: shouldReduceMotion ? 0 : 0.08,
             }}
           >
-            <p className="mb-5 text-sm font-medium uppercase tracking-[0.28em] text-primary">
-              {siteConfig.role}
-            </p>
+            {/* Primary Text Greeting as requested */}
+            <div className="rounded-3xl border border-border/80 bg-card/80 p-6 sm:p-8 shadow-sm backdrop-blur-md">
+              <div className="flex items-center gap-2 mb-3 text-xs uppercase tracking-[0.22em] text-primary font-bold">
+                <Sparkles className="h-4 w-4" />
+                <span>Personal Ledger</span>
+              </div>
 
-            <h1 className="max-w-3xl text-4xl font-black tracking-[-0.06em] text-foreground sm:text-5xl lg:text-7xl">
-              Building elegant software with calm intent.
-            </h1>
+              <h1 className="text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl lg:text-5xl leading-tight">
+                Namaste! I&apos;m Yash Sharma.
+              </h1>
 
-            <p className="mt-6 max-w-xl text-base text-muted-foreground sm:text-lg">
-              {siteConfig.tagline}
-            </p>
+              <p className="mt-4 text-base sm:text-lg leading-relaxed text-muted-foreground font-normal">
+                Welcome to my portfolio. Explore a digital version of my journey, projects, and
+                problem-solving ledger — and feel free to reach out!
+              </p>
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Button asChild size="lg" className="rounded-full px-6">
-                <a href="#srijan">
-                  View work
-                  <ArrowUpRight className="h-4 w-4" />
-                </a>
-              </Button>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <Button asChild size="lg" className="rounded-full px-6 font-semibold">
+                  <a href="#srijan">
+                    Explore Projects
+                    <ArrowUpRight className="h-4 w-4 ml-1" />
+                  </a>
+                </Button>
 
-              <Button asChild variant="outline" size="lg" className="rounded-full px-6">
-                <a href="mailto:hello@yashsharma.dev">Let&apos;s talk</a>
-              </Button>
-            </div>
-
-            <div className="mt-10 flex flex-wrap items-center gap-8 text-sm text-muted-foreground">
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div>{stat.label}</div>
-                </div>
-              ))}
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-6 font-semibold"
+                >
+                  <a href={`mailto:${siteConfig.email}`}>Direct Connect</a>
+                </Button>
+              </div>
             </div>
           </motion.div>
 
+          {/* Clean Editorial Analytical Focus Card (NO Avatar / NO Cartoon) */}
           <motion.div
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -87,48 +90,56 @@ export function Hero() {
             }}
             className="relative"
           >
-            <div className="absolute inset-0 -z-10 rounded-[2rem] bg-primary/10 blur-3xl" />
-            <div className="rounded-[2rem] border border-border bg-card/80 p-4 shadow-[0_30px_80px_rgba(0,0,0,0.22)] backdrop-blur-md sm:p-6">
-              <div className="rounded-[1.6rem] border border-border bg-gradient-to-br from-primary/15 via-background to-violet-500/10 p-5">
-                <div className="mb-5 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/15 text-lg font-bold text-primary">
-                      {siteConfig.monogram}
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground">{siteConfig.name}</div>
-                      <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        {siteConfig.location}
-                      </div>
-                    </div>
+            <div className="rounded-3xl border border-border/80 bg-card/90 p-6 shadow-md backdrop-blur-md">
+              <div className="flex items-center justify-between pb-4 border-b border-border/60">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 font-sanskrit text-base font-bold text-primary">
+                    {siteConfig.monogram}
                   </div>
-                  <Sparkles className="h-5 w-5 text-primary" />
+                  <div>
+                    <h2 className="font-bold text-foreground text-sm">{siteConfig.name}</h2>
+                    <p className="text-[11px] font-mono text-muted-foreground">
+                      {siteConfig.currentLocation}
+                    </p>
+                  </div>
+                </div>
+                <Badge variant="outline" className="text-[10px] uppercase font-mono tracking-wider">
+                  CU CSE &apos;27
+                </Badge>
+              </div>
+
+              <div className="mt-5 space-y-3 text-xs">
+                <div className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/60 p-3.5">
+                  <Cpu className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-foreground block">
+                      Systems & Distributed Logic
+                    </span>
+                    <span className="text-muted-foreground">
+                      Rust canisters on ICP & Spring Boot backend microservices
+                    </span>
+                  </div>
                 </div>
 
-                <div className="rounded-[1.4rem] border border-border bg-background/70 p-5">
-                  <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    <span>Current focus</span>
-                    <span>Full-stack</span>
+                <div className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/60 p-3.5">
+                  <ShieldCheck className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-foreground block">IEEE Chapter Governance</span>
+                    <span className="text-muted-foreground">
+                      Former Chairperson @ IEEE CUSB Main Branch & Mentor @ IEEE CIS
+                    </span>
                   </div>
+                </div>
 
-                  <div className="mt-5 space-y-4">
-                    <div className="rounded-2xl border border-border bg-card p-4">
-                      <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        System design
-                      </div>
-                      <div className="mt-2 text-xl font-semibold text-foreground">
-                        Thoughtful interfaces
-                      </div>
-                    </div>
-
-                    <div className="rounded-2xl border border-border bg-card p-4">
-                      <div className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                        Engineering
-                      </div>
-                      <div className="mt-2 text-xl font-semibold text-foreground">
-                        Reusable, resilient product code
-                      </div>
-                    </div>
+                <div className="flex items-start gap-3 rounded-2xl border border-border/60 bg-background/60 p-3.5">
+                  <Code2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                  <div>
+                    <span className="font-bold text-foreground block">
+                      Algorithmic Problem Solving
+                    </span>
+                    <span className="text-muted-foreground">
+                      Competitive Programming & Rapid/Blitz Chess calculations
+                    </span>
                   </div>
                 </div>
               </div>
@@ -138,11 +149,11 @@ export function Hero() {
 
         <div className="mt-12 flex justify-center lg:mt-16">
           <a
-            href="#vidya"
-            className="inline-flex flex-col items-center gap-2 text-sm uppercase tracking-[0.28em] text-muted-foreground transition-colors hover:text-foreground"
+            href="#srijan"
+            className="inline-flex flex-col items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground transition-colors hover:text-foreground"
           >
-            <span>Scroll</span>
-            <ArrowDown className="h-4 w-4 animate-bounce" />
+            <span>Explore Ledger</span>
+            <ArrowDown className="h-4 w-4 animate-bounce text-primary" />
           </a>
         </div>
       </div>

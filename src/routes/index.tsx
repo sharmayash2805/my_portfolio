@@ -73,13 +73,13 @@ const EXPLORATION_CHAPTERS = [
     label: "Review leadership & awards",
   },
   {
-    id: "chess",
+    id: "skills",
     number: "04",
-    title: "Shatranj · Chess Ledger",
+    title: "Skills & Strategic Hobbies",
     description:
-      "Live Chess.com ratings, rating trends, recent games, and the strategic parallels between chess endgame discipline and resilient software system design.",
-    href: "/chess",
-    label: "Inspect live chess stats",
+      "Technical stacks, IEEE chapter governance, and strategic disciplines including live Chess.com ratings and game telemetry.",
+    href: "/about",
+    label: "Inspect skills & chess stats",
   },
 ];
 
