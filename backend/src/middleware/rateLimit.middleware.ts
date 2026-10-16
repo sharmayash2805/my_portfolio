@@ -1,5 +1,5 @@
-import rateLimit from 'express-rate-limit';
-import { env } from '../config/env.js';
+import rateLimit from "express-rate-limit";
+import { env } from "../config/env.js";
 
 export const globalRateLimiter = rateLimit({
   windowMs: env.RATE_LIMIT_GLOBAL_WINDOW_MS,
@@ -8,7 +8,7 @@ export const globalRateLimiter = rateLimit({
   legacyHeaders: false,
   message: {
     success: false,
-    message: 'Too many requests from this IP, please try again later.',
+    message: "Too many requests from this IP, please try again later.",
   },
 });
 
@@ -19,7 +19,7 @@ export const contactRateLimiter = rateLimit({
   legacyHeaders: false,
   message: {
     success: false,
-    message: 'Too many contact submissions from this IP, please try again later.',
+    message: "Too many contact submissions from this IP, please try again later.",
   },
 });
 
@@ -30,6 +30,6 @@ export const chatRateLimiter = rateLimit({
   legacyHeaders: false,
   message: {
     success: false,
-    message: 'Too many chat requests from this IP, please try again later.',
+    message: "Too many chat requests from this IP, please try again later.",
   },
 });

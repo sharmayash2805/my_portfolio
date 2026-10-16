@@ -1,6 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
-import { env } from '../config/env.js';
-import { sendError } from '../utils/response.utils.js';
+import { Request, Response, NextFunction } from "express";
+import { env } from "../config/env.js";
+import { sendError } from "../utils/response.utils.js";
 
 export class AppError extends Error {
   public statusCode: number;
@@ -18,19 +18,19 @@ export const errorMiddleware = (
   err: Error | AppError,
   _req: Request,
   res: Response,
-  _next: NextFunction
+  _next: NextFunction,
 ): void => {
   const isAppError = err instanceof AppError;
   const statusCode = isAppError ? err.statusCode : 500;
 
-  let message = err.message || 'Internal server error';
+  let message = err.message || "Internal server error";
 
-  if (env.NODE_ENV === 'production' && (!isAppError || statusCode === 500)) {
-    message = 'An internal server error occurred';
+  if (env.NODE_ENV === "production" && (!isAppError || statusCode === 500)) {
+    message = "An internal server error occurred";
   }
 
-  if (env.NODE_ENV === 'development') {
-    console.error('[ErrorMiddleware] Captured Error:', err);
+  if (env.NODE_ENV === "development") {
+    console.error("[ErrorMiddleware] Captured Error:", err);
   }
 
   sendError(res, message, statusCode);

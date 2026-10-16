@@ -1,8 +1,8 @@
-import { ContactPayload, ContactResult } from '../types/contact.types.js';
+import { ContactPayload, ContactResult } from "../types/contact.types.js";
 
 export class ContactService {
   public async processContactMessage(payload: ContactPayload): Promise<ContactResult> {
-    console.log('[ContactService] Received contact message:', {
+    console.log("[ContactService] Received contact message:", {
       name: payload.name.trim(),
       email: payload.email.trim(),
       subject: payload.subject.trim(),
@@ -12,7 +12,7 @@ export class ContactService {
 
     return {
       ok: true,
-      message: 'Message sent — Jai Shree Ram',
+      message: "Message sent — Jai Shree Ram",
     };
   }
 }

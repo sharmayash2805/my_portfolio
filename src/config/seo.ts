@@ -1,9 +1,9 @@
 import { siteConfig } from "./site";
 
 export const seoConfig = {
-  title: `${siteConfig.name} — ${siteConfig.role} & Chess Player`,
+  title: `${siteConfig.name} — ${siteConfig.role}`,
   description:
-    "Portfolio of Yash Sharma: full-stack developer and chess player. Projects, skills, live Chess.com stats, and an interactive way to get to know me.",
+    "Official portfolio of Yash Sharma: analytical problem solver, systems builder, former IEEE CUSB Chairperson, and competitive chess enthusiast.",
   siteUrl: "https://yashsharma.dev",
   ogType: "website",
   twitterCard: "summary_large_image",

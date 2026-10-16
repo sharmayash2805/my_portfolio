@@ -3,7 +3,7 @@ const getApiBaseUrl = (): string => {
   if (envUrl && envUrl.trim().length > 0) {
     return envUrl.replace(/\/$/, "");
   }
-  return "http://localhost:5000/api";
+  return "/api";
 };
 
 export const chessConfig = {

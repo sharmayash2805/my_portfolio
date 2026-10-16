@@ -1,4 +1,4 @@
-import { QaPair } from '../types/chat.types.js';
+import { QaPair } from "../types/chat.types.js";
 
 export const qaCorpus: QaPair[] = [
   {

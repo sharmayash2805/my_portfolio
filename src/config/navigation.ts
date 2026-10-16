@@ -1,13 +1,10 @@
-import type { NavItem, SectionId } from "@/types";
+import type { NavItem } from "@/types";
 
 export const navItems: NavItem[] = [
-  { id: "mahadrishti", label: "Home", sanskrit: "महादृष्टि", href: "#mahadrishti" },
-  { id: "vidya", label: "Skills", sanskrit: "विद्या", href: "#vidya" },
-  { id: "karma-path", label: "Journey", sanskrit: "कर्मपथ", href: "#karma-path" },
-  { id: "srijan", label: "Projects", sanskrit: "सृजन", href: "#srijan" },
-  { id: "shatranj", label: "Chess", sanskrit: "शतरंज", href: "#shatranj" },
-  { id: "samvaad", label: "Know Me", sanskrit: "संवाद", href: "#samvaad" },
-  { id: "kriya", label: "Contact", sanskrit: "क्रिया", href: "#kriya" },
+  { id: "home", label: "Overview", href: "/" },
+  { id: "about", label: "About", href: "/about" },
+  { id: "projects", label: "Projects", href: "/projects" },
+  { id: "experience", label: "Experience", href: "/experience" },
+  { id: "chess", label: "Chess", href: "/chess" },
+  { id: "contact", label: "Contact", href: "/contact" },
 ];
-
-export const sectionOrder: SectionId[] = navItems.map((item) => item.id);

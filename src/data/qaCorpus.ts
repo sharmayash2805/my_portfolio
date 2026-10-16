@@ -11,7 +11,7 @@ export const qaCorpus: QaPair[] = [
     intent: "introduction",
     questions: ["Who are you?", "Tell me about yourself", "Introduce yourself"],
     answer:
-      "I'm Yash Sharma, a full-stack developer. I build typed, accessible web products end to end — React and TypeScript on the front, Node and Postgres behind it. Outside code I play a lot of chess, which is where most of my patience comes from.",
+      "I'm Yash Sharma, a software developer and analytical problem solver. I build typed, resilient applications across distributed systems and modern web technologies — from algorithmic engines to Web3 dApps. Outside code I practice competitive programming and play competitive chess.",
   },
   {
     id: "qa-stack",

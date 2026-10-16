@@ -6,7 +6,7 @@ import {
   Download,
   Mail,
   MessageSquareText,
-  Sparkles,
+  Globe,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
@@ -33,13 +33,15 @@ export function ContactSection() {
           transition={{ duration: prefersReducedMotion ? 0 : 0.5, ease: "easeOut" }}
           className="text-center"
         >
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.24em] text-primary">Kriya</p>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-primary">
+            Get In Touch
+          </p>
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-5xl">
-            Let&apos;s build something useful.
+            Let&apos;s build something resilient.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-base text-muted-foreground md:text-lg">
-            I&apos;m open to product work, thoughtful collaborations, and the kind of engineering
-            problems that need both precision and calm.
+            I&apos;m open to software roles, full-stack internships, and technical collaborations
+            that demand algorithmic precision and calm problem-solving.
           </p>
         </motion.div>
 
@@ -77,7 +79,7 @@ export function ContactSection() {
             <div className="rounded-[1.75rem] border border-border bg-card/70 p-6 shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
               <div className="flex items-center gap-3">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
-                  <Sparkles className="h-5 w-5" />
+                  <Globe className="h-5 w-5" />
                 </div>
                 <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Connect</p>
               </div>

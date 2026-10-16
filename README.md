@@ -36,7 +36,6 @@ Do not invent additional sections or modify the information from the blueprint.
 
 First, analyze the blueprint and create the complete frontend architecture. Before generating code, present a development plan showing the component hierarchy, page structure, reusable components, and folder organization. Wait for my approval before generating the actual code.
 
-
 Don't generate code immediately
 Blueprint
 

@@ -1,18 +1,17 @@
-export type SectionId =
-  "mahadrishti" | "vidya" | "karma-path" | "srijan" | "shatranj" | "samvaad" | "kriya";
+export type SectionId = "home" | "about" | "projects" | "experience" | "chess" | "contact";
 
 export interface NavItem {
-  id: SectionId;
+  id: string;
   label: string;
-  sanskrit: string;
   href: string;
+  sanskrit?: string;
 }
 
 export interface SocialLink {
   id: string;
   label: string;
   href: string;
-  icon: "github" | "linkedin" | "mail" | "crown" | "twitter";
+  icon: "github" | "linkedin" | "mail" | "crown" | "phone" | "code";
 }
 
 export type SkillLevel = "core" | "proficient" | "familiar";
@@ -25,7 +24,7 @@ export interface Skill {
 export interface SkillGroup {
   id: string;
   title: string;
-  sanskrit: string;
+  sanskrit?: string;
   skills: Skill[];
 }
 
@@ -33,6 +32,43 @@ export interface SpokenLanguage {
   name: string;
   script: string;
   proficiency: string;
+}
+
+export interface EducationItem {
+  degree: string;
+  institution: string;
+  location: string;
+  period: string;
+  grade?: string;
+  highlights?: string[];
+}
+
+export interface ExperienceRole {
+  title: string;
+  period: string;
+  description?: string;
+}
+
+export interface ExperienceItem {
+  id: string;
+  organisation: string;
+  role: string;
+  type: "internship" | "leadership" | "community";
+  location: string;
+  period: string;
+  description: string;
+  bullets: string[];
+  tags: string[];
+  subRoles?: ExperienceRole[];
+}
+
+export interface AwardItem {
+  id: string;
+  title: string;
+  organisation: string;
+  year: string;
+  description: string;
+  badge?: string;
 }
 
 export interface Milestone {
@@ -44,19 +80,27 @@ export interface Milestone {
   tags: string[];
 }
 
-export type ProjectCategory = "web" | "ai" | "systems" | "experiments";
+export type ProjectCategory = "web" | "fullstack" | "systems" | "cloud";
+
+export interface ProjectRepo {
+  label: string;
+  url: string;
+}
 
 export interface Project {
   id: string;
   title: string;
-  sanskrit: string;
+  subtitle: string;
+  sanskrit?: string;
   summary: string;
+  story: string;
   category: ProjectCategory;
   stack: string[];
   year: string;
-  repoUrl?: string;
+  award?: string;
+  repos: ProjectRepo[];
   liveUrl?: string;
-  highlight?: string;
+  highlights: string[];
 }
 
 export interface ProjectFilter {

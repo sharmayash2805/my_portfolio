@@ -1,14 +1,14 @@
-import { Request, Response, NextFunction } from 'express';
-import { randomUUID } from 'crypto';
+import { Request, Response, NextFunction } from "express";
+import { randomUUID } from "crypto";
 
 export const loggerMiddleware = (req: Request, res: Response, next: NextFunction): void => {
-  const requestId = (req.headers['x-request-id'] as string) || randomUUID();
+  const requestId = (req.headers["x-request-id"] as string) || randomUUID();
   const startTime = Date.now();
 
-  req.headers['x-request-id'] = requestId;
-  res.setHeader('X-Request-ID', requestId);
+  req.headers["x-request-id"] = requestId;
+  res.setHeader("X-Request-ID", requestId);
 
-  res.on('finish', () => {
+  res.on("finish", () => {
     const duration = Date.now() - startTime;
     const logEntry = {
       requestId,
@@ -20,7 +20,7 @@ export const loggerMiddleware = (req: Request, res: Response, next: NextFunction
     };
 
     console.log(
-      `[HTTP] ${logEntry.timestamp} | ${logEntry.method} ${logEntry.route} | Status: ${logEntry.statusCode} | ${logEntry.responseTimeMs}ms | ReqId: ${logEntry.requestId}`
+      `[HTTP] ${logEntry.timestamp} | ${logEntry.method} ${logEntry.route} | Status: ${logEntry.statusCode} | ${logEntry.responseTimeMs}ms | ReqId: ${logEntry.requestId}`,
     );
   });
 

@@ -1,10 +1,10 @@
-import { HealthResponse } from '../types/api.types.js';
+import { HealthResponse } from "../types/api.types.js";
 
 export class HealthService {
   public getHealthStatus(): HealthResponse {
     return {
       success: true,
-      message: 'Backend is running',
+      message: "Backend is running",
       uptimeSeconds: Math.floor(process.uptime()),
       timestamp: new Date().toISOString(),
     };

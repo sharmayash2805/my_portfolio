@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { healthService } from '../services/health.service.js';
+import { Request, Response } from "express";
+import { healthService } from "../services/health.service.js";
 
 export class HealthController {
   public getHealth = (_req: Request, res: Response): void => {

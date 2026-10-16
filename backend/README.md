@@ -109,9 +109,11 @@ npm run start
 ## API Endpoints
 
 ### Health
+
 - `GET /api/health` — Minimal operational status (`status`, `uptimeSeconds`, `timestamp`).
 
 ### Chess
+
 - `GET /api/chess/snapshot` — Combined profile, stats, recent games, and rating trend history.
 - `GET /api/chess/profile` — Player profile details.
 - `GET /api/chess/stats` — Rapid, Blitz, and Bullet ratings.
@@ -119,8 +121,10 @@ npm run start
 - `GET /api/chess/rating-history` — Formatted rating points.
 
 ### Contact
+
 - `POST /api/contact` — Submits contact inquiry. Validates payload via Zod and returns `{ "success": true, "message": "Message sent — Jai Shree Ram" }`.
 
 ### Chat / AI Assistant
+
 - `GET /api/chat/prompts` — Quick prompt suggestions.
 - `POST /api/chat/ask` — TF-IDF question classification and response generation.

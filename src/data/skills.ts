@@ -1,49 +1,84 @@
 import type { SkillGroup, SpokenLanguage } from "@/types";
 
+export interface Certification {
+  name: string;
+  issuer: string;
+  period: string;
+}
+
 export const skillGroups: SkillGroup[] = [
   {
     id: "languages",
-    title: "Languages",
-    sanskrit: "भाषा",
+    title: "Programming Languages",
     skills: [
-      { name: "TypeScript", level: "core" },
+      { name: "Java", level: "core" },
       { name: "JavaScript", level: "core" },
-      { name: "Python", level: "core" },
-      { name: "Java", level: "proficient" },
-      { name: "C++", level: "proficient" },
-      { name: "SQL", level: "proficient" },
-      { name: "Go", level: "familiar" },
-      { name: "Rust", level: "familiar" },
+      { name: "TypeScript", level: "core" },
+      { name: "SQL", level: "core" },
     ],
   },
   {
-    id: "frameworks",
-    title: "Frameworks & Tools",
-    sanskrit: "उपकरण",
+    id: "fullstack",
+    title: "Full-Stack & Frameworks",
     skills: [
-      { name: "React", level: "core" },
+      { name: "React.js", level: "core" },
       { name: "Node.js", level: "core" },
+      { name: "Express.js", level: "core" },
+      { name: "Spring Boot", level: "proficient" },
+      { name: "REST APIs", level: "core" },
+      { name: "JWT Authentication", level: "proficient" },
       { name: "Tailwind CSS", level: "core" },
-      { name: "PostgreSQL", level: "proficient" },
-      { name: "Docker", level: "proficient" },
-      { name: "FastAPI", level: "proficient" },
-      { name: "Redis", level: "familiar" },
-      { name: "AWS", level: "familiar" },
+    ],
+  },
+  {
+    id: "databases",
+    title: "Databases & Storage",
+    skills: [
+      { name: "PostgreSQL", level: "core" },
+      { name: "MySQL", level: "core" },
+      { name: "MS SQL Server (SSMS)", level: "proficient" },
+    ],
+  },
+  {
+    id: "core-cs",
+    title: "Core CS & Engineering Tools",
+    skills: [
+      { name: "Data Structures & Algorithms", level: "core" },
+      { name: "Competitive Coding", level: "core" },
+      { name: "Object-Oriented Programming (OOP)", level: "core" },
+      { name: "System Design", level: "proficient" },
+      { name: "Git & GitHub", level: "core" },
     ],
   },
 ];
 
 export const spokenLanguages: SpokenLanguage[] = [
-  { name: "Hindi", script: "हिन्दी", proficiency: "Native" },
-  { name: "English", script: "English", proficiency: "Fluent" },
-  { name: "Sanskrit", script: "संस्कृतम्", proficiency: "Reading" },
+  { name: "Hindi", script: "हिन्दी", proficiency: "Mother Tongue / Native" },
+  { name: "Odia", script: "ଓଡ଼ିଆ", proficiency: "Regional / Bilingual" },
+  { name: "English", script: "English", proficiency: "Professional Working" },
+];
+
+export const certificationsList: Certification[] = [
+  { name: "Spring and Angular Full Stack Developer", issuer: "LinkedIn Learning", period: "2025" },
+  {
+    name: "SQL: A Practical Introduction for Querying Databases",
+    issuer: "LinkedIn Learning",
+    period: "2025",
+  },
+  { name: "Full-Stack Development", issuer: "Infosys Springboard", period: "2024" },
+  { name: "Data Structures & Algorithms in Java", issuer: "Coursera", period: "2024" },
+  {
+    name: "Design Thinking: Implementing the Process",
+    issuer: "Professional Certification",
+    period: "2024",
+  },
 ];
 
 export const interpersonalTags: string[] = [
-  "Systems thinking",
-  "Calm under pressure",
-  "Clear written communication",
-  "Mentoring",
-  "Long-horizon planning",
-  "Attention to detail",
+  "Strategic leadership",
+  "Technical mentorship",
+  "500+ student chapter governance",
+  "Methodical problem-solving",
+  "Clear engineering documentation",
+  "Cross-functional team coordination",
 ];

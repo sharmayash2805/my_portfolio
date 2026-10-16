@@ -14,7 +14,7 @@ export interface ChessStat {
   record: { win: number; loss: number; draw: number } | null;
 }
 
-export type ChessResult = 'win' | 'loss' | 'draw';
+export type ChessResult = "win" | "loss" | "draw";
 
 export interface ChessGame {
   id: string;

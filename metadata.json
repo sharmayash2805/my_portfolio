@@ -1,0 +1,6 @@
+{
+  "name": "Yash Sharma Portfolio",
+  "description": "Portfolio of Yash Sharma: analytical problem solver, systems thinker, and builder. Projects, skills, live Chess.com & DSA stats.",
+  "permissions": [],
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
