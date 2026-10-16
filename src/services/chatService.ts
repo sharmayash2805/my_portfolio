@@ -1,14 +1,7 @@
 import { qaCorpus } from "@/data/qaCorpus";
 import { buildResponse } from "@/engine/responseBuilder";
 import type { BuiltResponse } from "@/types";
-
-const getApiBaseUrl = (): string => {
-  const envUrl = import.meta.env.VITE_API_BASE_URL as string | undefined;
-  if (envUrl && envUrl.trim().length > 0) {
-    return envUrl.replace(/\/$/, "");
-  }
-  return "/api";
-};
+import { getApiEndpoint } from "@/utils/apiUtils";
 
 interface ApiResponse<T> {
   success: boolean;
@@ -19,41 +12,47 @@ interface ApiResponse<T> {
 
 export const chatService = {
   async ask(question: string): Promise<BuiltResponse> {
-    try {
-      const res = await fetch(`${getApiBaseUrl()}/chat/ask`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ question }),
-      });
+    const endpoint = getApiEndpoint("/chat/ask");
+    if (endpoint) {
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ question }),
+        });
 
-      if (res.ok) {
-        const json = (await res.json()) as ApiResponse<BuiltResponse> | BuiltResponse;
-        const response: BuiltResponse =
-          "data" in json && json.data ? json.data : (json as BuiltResponse);
-        return response;
+        if (res.ok) {
+          const json = (await res.json()) as ApiResponse<BuiltResponse> | BuiltResponse;
+          const response: BuiltResponse =
+            "data" in json && json.data ? json.data : (json as BuiltResponse);
+          return response;
+        }
+      } catch {
+        // Backend not running, fallback to client-side NLP engine
       }
-    } catch {
-      // Backend not running, fallback to client-side NLP engine
     }
 
     return buildResponse(question);
   },
 
   async getQuickPrompts(): Promise<string[]> {
-    try {
-      const res = await fetch(`${getApiBaseUrl()}/chat/prompts`);
-      if (res.ok) {
-        const json = (await res.json()) as ApiResponse<string[]> | string[];
-        const prompts: string[] =
-          "data" in json && Array.isArray(json.data) ? json.data : (json as string[]);
-        if (Array.isArray(prompts) && prompts.length > 0) {
-          return prompts;
+    const endpoint = getApiEndpoint("/chat/prompts");
+    if (endpoint) {
+      try {
+        const res = await fetch(endpoint);
+        if (res.ok) {
+          const json = (await res.json()) as ApiResponse<string[]> | string[];
+          const prompts: string[] =
+            "data" in json && Array.isArray(json.data) ? json.data : (json as string[]);
+          if (Array.isArray(prompts) && prompts.length > 0) {
+            return prompts;
+          }
         }
+      } catch {
+        // Fallback below
       }
-    } catch {
-      // Fallback below
     }
 
     return [

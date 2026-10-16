@@ -1,6 +1,7 @@
 import { chessConfig } from "@/config/chess";
 import type { ChessGame, ChessSnapshot, ChessStat, RatingPoint } from "@/types";
 import { readCache, writeCache } from "@/utils/storage";
+import { getApiEndpoint } from "@/utils/apiUtils";
 
 interface CachedSnapshot {
   at: number;
@@ -186,17 +187,20 @@ export const chessService = {
       return cached.snapshot;
     }
 
-    try {
-      const res = await fetch(`${chessConfig.apiBase}/snapshot`);
-      if (res.ok) {
-        const json = (await res.json()) as ApiResponse<ChessSnapshot> | ChessSnapshot;
-        const snapshot: ChessSnapshot =
-          "data" in json && json.data ? json.data : (json as ChessSnapshot);
-        writeCache(chessConfig.cacheKey, { at: Date.now(), snapshot } satisfies CachedSnapshot);
-        return snapshot;
+    const endpoint = getApiEndpoint("/chess/snapshot");
+    if (endpoint) {
+      try {
+        const res = await fetch(endpoint);
+        if (res.ok) {
+          const json = (await res.json()) as ApiResponse<ChessSnapshot> | ChessSnapshot;
+          const snapshot: ChessSnapshot =
+            "data" in json && json.data ? json.data : (json as ChessSnapshot);
+          writeCache(chessConfig.cacheKey, { at: Date.now(), snapshot } satisfies CachedSnapshot);
+          return snapshot;
+        }
+      } catch {
+        // Backend not running, proceed to direct Chess.com API fallback
       }
-    } catch {
-      // Backend not running, proceed to direct Chess.com API fallback
     }
 
     const snapshot = await fetchDirectChessSnapshot();
@@ -205,8 +209,10 @@ export const chessService = {
   },
 
   async getRecentGames(): Promise<ChessGame[]> {
+    const endpoint = getApiEndpoint("/chess/games");
+    if (!endpoint) return [];
     try {
-      const res = await fetch(`${chessConfig.apiBase}/games`);
+      const res = await fetch(endpoint);
       if (!res.ok) return [];
       const json = (await res.json()) as ApiResponse<ChessGame[]> | ChessGame[];
       const games: ChessGame[] =
